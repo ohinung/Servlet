@@ -1,5 +1,7 @@
 package com.marondal.servlet.ex;
 
-public class Ex06Controller {
+import javax.servlet.http.HttpServlet;
+
+public class Ex06Controller extends HttpServlet{
 
 }
