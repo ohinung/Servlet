@@ -36,8 +36,24 @@
 	<%
 		//동물이름 리스트
 		List<String> animalList = new ArrayList<>();
+	    animalList.add("고양이");
+	    animalList.add("강아지");
 	
 	%>
+	
+	<ul>
+		<li><%=animalList.get(0) %></li>
+		<li> <%=animalList.get(1) %></li>
+	</ul>
+	
+		<h3>메소드 만들기</h3>
+		
+		<% public String getHelloWorld(){
+			return "helloworld";
+			
+			}%>
+		
+	
 	
 
 </body>

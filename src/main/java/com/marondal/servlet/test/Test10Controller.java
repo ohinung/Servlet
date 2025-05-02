@@ -18,6 +18,18 @@ public class Test10Controller extends HttpServlet{
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");
 		
+		out.println(""
+				+"<html>"
+				+"	<head><title>로그인 과정</title></head>"
+				
+				);
+		
+		out.println(""
+				+"<html>"
+				+"	<head><title>로그인 과정</title></head>"
+				
+				)
+		
 ;	}
 
 }
