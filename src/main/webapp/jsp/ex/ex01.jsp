@@ -48,8 +48,9 @@
 	
 		<h3>메소드 만들기</h3>
 		
-		<% public String getHelloWorld(){
-			return "helloworld";
+		<% 
+			public char getHelloWorld(){
+				return 'helloworld';
 			
 			}%>
 		
