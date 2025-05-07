@@ -48,11 +48,6 @@
 	
 		<h3>메소드 만들기</h3>
 		
-		<% 
-			public char getHelloWorld(){
-				return 'helloworld';
-			
-			}%>
 		
 	
 	
