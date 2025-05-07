@@ -46,7 +46,7 @@
   
   <div class = "container">
   	<h2>BMI 측정 결과 </h2>
-  	<div class = "display-4"> 당신은 <span class = "text-info">정상</span>입니다.</div>
+  	<div class = "display-4"> 당신은 <span class = "text-info"><</span>입니다.</div>
   	<div> BMI 수치 : <%= bmi %></div>
   	
   </div>
