@@ -73,12 +73,7 @@
 					<td>5</td>
 					
 				</tr>
-				
-				<tr>
-					<td>35</td>
-					<td>45</td>
-					<td>55</td>
-				</tr>
+		
 			
 			</tbody>
 		
