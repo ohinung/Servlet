@@ -39,6 +39,9 @@
 		    
 		    String menuString = request.getParameter("menu");
 		    
+		    //체크박스의 선택 여부에 따라~~
+		    //체크가 안됐다면 null을 파라미터로~~
+		    //파라미터가 전달되지 아니함.
 		    String pointValue = request.getParameter("point");
 		    
 		    
@@ -46,6 +49,8 @@
 	
 	
 	%>
+	
+		<h3><%= pointValue %></h3>
 		<h2 class = "display-4 d-flex justify-content-center">검색 결과</h2>
 		
 		
@@ -59,25 +64,16 @@
 				</tr>
 			</thead>
 			<tbody>
-			<%if(pointValue.equals(null)) {
-				for(Map<String, Object> listMap : list) {
-						if(listMap.get("menu").equals(menuString)){
-							
-						%>
-						<tr>
-							<td><%= listMap.get("name")%></td>
-							<td><%= listMap.get("menu")%></td>
-							<td><%= listMap.get("point")%></td>		
-						</tr>
-				
-				<%} %>
-				
-				<%} %>
-			<%}else if(pointValue.equals("great")){
-							for(Map<String, Object> listMap : list) {
+			
+						<%	for(Map<String, Object> listMap : list) {
 								double point = (double)listMap.get("point");
-								if( point >= 4.0){
-									if(listMap.get("menu").equals(menuString)){
+								if( listMap.get("menu").equals(menuString) && (point.equals(null) || point >= 4.0 )) {
+									
+									
+									//point가 null이면
+									//point가 "on"이면
+									//또는 이라는 연산자의 경우 앞에 있는 조건이 참이라면 다음 조건은 확인하지 않음
+									
 										
 									%>
 									<tr>
@@ -88,8 +84,7 @@
 							
 							<%} %>
 							<%} %>
-							<%} %>
-							<%} %>
+							
 							
 		
 			</tbody>	

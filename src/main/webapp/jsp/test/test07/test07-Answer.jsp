@@ -38,7 +38,7 @@
 		
 		    
 		    String menuString = request.getParameter("menu");
-		    
+		    //체크가 안됐다면 
 		    String pointValue = request.getParameter("point");
 		    
 		    
