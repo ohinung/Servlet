@@ -89,25 +89,23 @@
     musicInfo.put("composer", "아이유,이종훈,이채규");
     musicInfo.put("lyricist", "아이유");
     musicList.add(musicInfo);
+    
+    
+    String titleString = request.getParameter("title");
+    
+    
 %>
 	<div id = "wrap" >
-	<header class = "d-flex " >
-	
-		<div class="mx-3 my-3 col-2">
-	 	<a href ="/jsp/test/test10/test10.jsp" class = "text-success fw-bolder mx-3 my-3 col-2 link-underline-light"><h1 class = "text-success fw-bolder">Melong</h1></a>
-	 	</div>
-	 	
+	<header class = "d-flex" >
+	 	<a href ="/jsp/test/test10/test10.jsp" class = "text-success fw-bolder mx-3 my-3 col-2 link-underline-light"><h1>Melong</h1></a>
 	 	<div class =" d-flex align-items-center">
-	 	<form method ="post" action = /jsp/test/test10/test10-link.jsp  >
-	 	
-			<div class="input-group">
-			<input type="text" class="form-control" placeholder="검색어를 입력하세요"  name = "title" aria-label="Recipient's username" aria-describedby="button-addon2">
+	 	<form method ="post" action = /jsp/test/test10/test10-link.jsp>
+		 	<div class="input-group ">
+			<input type="text" class="form-control" placeholder="검색어를 입력하세요" name = "title" aria-label="Recipient's username" aria-describedby="button-addon2">
 			<button class="btn btn-primary" type="submit" id="button-addon2" name = "title">검색</button>
 			</div>
-	 	
 	 	</form>
 	 	</div>
-	 	
 	</header>
 	
 	<nav class = "mainMenu col-6">
@@ -124,37 +122,39 @@
 	
 	
 	<section class = "contents">
+		<h3 class = "fw-bolder">곡 정보</h3>
 	
-		<div class ="border border-success">
+		<div class ="border border-success mb-3">
 			<div class ="mx-3 d-flex my-3">
-				<img alt = "artist-picture" src = <%=artistInfo.get("photo") %> width = 250>
-				<div class = "mx-3"><span class = "fw-bolder display-4"><%=artistInfo.get("name") %></span> <br><br><br>
-					<h4><%=artistInfo.get("agency") %> <br>
-					<%=artistInfo.get("debute") %></h4></div>
+				<% for (Map<String, Object> music : musicList) { 
+					if(titleString.equals(music.get("title")) || titleString.contains((String)music.get("title"))){%>
+				<img alt = "artist-picture" src = <%=music.get("thumbnail") %> width = 250>
+				<div class = "mx-3"><span class = "fw-bolder display-4"><%=music.get("title") %></span> <br><br>
+					<span ><h3 class = "fw-bolder text-success"><%=music.get("singer") %><h3></h3></span><br>
+					
+					<span class = "text-secondary">
+					 앨범   -  <%=music.get("album") %> <br>
+					 재생시간    -  <%=music.get("time") %> <br>
+					 작곡가   -  <%=music.get("composer") %> <br>
+					 작사가   - <%=music.get("lyricist") %> <br></span></div>
+					<%} %>
+				<%} %>
 				
 			</div>
 		</div>
 		
-		<table class = "table text-center"> 
+		<table class = "table"> 
 			<thead>
 				<tr>
-					<th>no</th>
-					<th>제목</th>
-					<th>앨범</th>
-					
+					<th><h3 class = "fw-bolder">가사</h3></th>
 				</tr>
 			</thead>
 			<tbody>
 			
 				<tr>
-					<%for(Map<String, Object> music : musicList) {%>
-					<td><%=music.get("id") %></td>
-					<td><a href = "/jsp/test/test10/test10-link.jsp?title=<%=music.get("title") %>" class= " text-primary link-underline-light fw-bolder"><%=music.get("title") %></td>
-					<td><%=music.get("album") %></td>
-					
-					
+					<td>가사 정보 없음</td>
 				</tr>
-					<%} %>
+					
 					
 					
 				

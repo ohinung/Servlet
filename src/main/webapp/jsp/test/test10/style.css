@@ -1,6 +1,22 @@
 @charset "UTF-8";
-#wrap{
-	width : 1200px;
-	height : 800px;
-	margine : 0 auto;
+
+
+#wrap {
+	width :1200px;
+	margin : 0 auto;
+	
+}
+
+header{
+	height : 100px;
+}
+
+.mainMenu{
+	height : 50px;
+}
+
+
+
+footer{
+	height :50px;
 }
