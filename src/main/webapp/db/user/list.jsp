@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import = "com.marondal.common.MySQLService" %>
 <%@ page import = "java.sql.ResultSet" %>
+<%@ page import = "java.util.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,12 +16,13 @@
 		MySQLService mysqlService=new MySQLService();
 	
 		mysqlService.connect();
-		ResultSet resultSet = mysqlService.select("SELECT * FROM `user`");
+		List<Map<String, Object>> userList = mysqlService.select("SELECT * FROM `user`");
 		
-		
+		mysqlService.disconnect();
 		
 	
 	%>
+	<%=userList.toString() %>
 	
 	<table border = "1">
 		<thead>
@@ -32,16 +34,13 @@
 			
 		</thead>
 		<tbody> 
-			<% while(resultSet.next()){%>
+			<% for(Map<String,Object> user: userList){
 			
-			
-			
-			
-			
+				// 목적은 특정 테이블의 컬럼네임을 적는 것이 아닌 어떤 테이블이라도 뽑아낼 수 있어야함.%>
 			<tr>
-				<td><%= resultSet.getString("name")%></td>
-				<td><%=resultSet.getString("email")%></td>
-				<td><%=resultSet.getString("introduce")%></td>
+				<td><%= user.get("name")%></td>
+				<td><%= user.get("email")%></td>
+				<td><%= user.get("introduce")%></td>
 			
 			</tr>
 			<%}		%>
