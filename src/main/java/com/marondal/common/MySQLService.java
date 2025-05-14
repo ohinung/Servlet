@@ -14,10 +14,33 @@ import java.util.Map;
 public class MySQLService {
 	
 	Connection connection;
+	//클래스를 설계한 입장에서
+	//해당 클래스의 객체가 두개이상 만들어지지 않도록
+	// 하나의 객체를 동유해서 사용하게 한다.
+	//singleton pattern
+	// static 변수 : 객체 생성 없이 사용할 수 있는 멤버변수
 	
+	
+	
+	private static MySQLService mysqlService = null;
 	
 	//클래스를 설계한 입장에서 해당
 	//static 메소드: 객체 생성없이 생성 가능한 메소드
+	
+	//해당 클ㄹ래스의  리턴하는 메소드
+	//static 메소드 : 객체 생성없이 사용할 수 있는 메소드
+	// 객체 생성없이 수행되는 기능이기 떄문에 객체 생성을 통해서 만들지는 멤버변수는 사용불가능
+	
+	
+	
+	public static MySQLService getInstance() {
+		
+		if(mysqlService == null) {
+			mysqlService = new MySQLService();
+		}
+		return mysqlService;
+	}
+	
 	
 	//모듈화해서 손쉽게 활용하자
 	
@@ -100,6 +123,25 @@ public class MySQLService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
+		}
+		
+		
+	}
+	
+	//Insert,Update,Delete
+	
+	public int update(String query) {
+		
+		
+		try {
+			Statement statement = connection.createStatement();
+			int count = statement.executeUpdate(query);
+			statement.close();
+			return count;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return -1;
 		}
 		
 		

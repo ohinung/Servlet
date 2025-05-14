@@ -16,7 +16,7 @@
 		MySQLService mysqlService=new MySQLService();
 	
 		mysqlService.connect();
-		List<Map<String, Object>> userList = mysqlService.select("SELECT * FROM `user`");
+		List<Map<String, Object>> userList = mysqlService.select("SELECT * FROM `new user`");
 		
 		mysqlService.disconnect();
 		
